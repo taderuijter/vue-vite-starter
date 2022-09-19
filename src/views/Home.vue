@@ -1,28 +1,24 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center pt-5 pb-5">
-        <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <div class="text-center">
+        <h1 class="text-3xl font-bold mb-4">
+          Homepage
+        </h1>
         <p>This data comes from the store.</p>
-        <default-button v-if="!store.storage.active" :onClick="store.setLocalStorage" styling="btn__primary btn--block">Activate LocalStorage</default-button>
-        <default-button v-else :onClick="removeStorage" styling="btn__primary btn--block">Remove LocalStorage</default-button>
+        <default-button v-if="!store.storage.active" :onClick="store.setLocalStorage">Activate LocalStorage</default-button>
+        <default-button v-else :onClick="removeStorage">Remove LocalStorage</default-button>
 
         <div class="mt-5" v-if="!store.storage.active">
           <p>Counter: {{ store.counter }}</p>
-          <default-button :onClick="store.increment" styling="btn__transparant">Increase</default-button>
+          <default-button :onClick="store.increment">Increase</default-button>
           <div class="mt-2">
-            <span tabindex="0" class="btn__link" @click="storeReset" @keydown.enter="storeReset">Reset</span>
+            <span tabindex="0" class="underline underline-offset-4 hover:no-underline font-medium cursor-pointer" @click="storeReset" @keydown.enter="storeReset">Reset</span>
           </div>
         </div>
 
         <div class="mt-5" v-else>
           <p>Saved Counter: {{ store.storage.counter }}</p>
-          <default-button :onClick="store.incrementStorage" styling="btn__transparant">Increment</default-button>
+          <default-button :onClick="store.incrementStorage">Increment</default-button>
         </div>
-      </div>
-    </div>
   </div>
 </template>
 

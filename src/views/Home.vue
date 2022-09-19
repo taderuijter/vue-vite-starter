@@ -4,20 +4,20 @@
           Homepage
         </h1>
         <p>This data comes from the store.</p>
-        <default-button v-if="!store.storage.active" :onClick="store.setLocalStorage">Activate LocalStorage</default-button>
-        <default-button v-else :onClick="removeStorage">Remove LocalStorage</default-button>
+        <default-button v-if="!store.storage.active" :on-click="store.setLocalStorage">Activate LocalStorage</default-button>
+        <default-button v-else :on-click="removeStorage">Remove LocalStorage</default-button>
 
-        <div class="mt-5" v-if="!store.storage.active">
+        <div v-if="!store.storage.active" class="mt-5">
           <p>Counter: {{ store.counter }}</p>
-          <default-button :onClick="store.increment">Increase</default-button>
+          <default-button :on-click="store.increment">Increase</default-button>
           <div class="mt-2">
             <span tabindex="0" class="underline underline-offset-4 hover:no-underline font-medium cursor-pointer" @click="storeReset" @keydown.enter="storeReset">Reset</span>
           </div>
         </div>
 
-        <div class="mt-5" v-else>
+        <div v-else class="mt-5">
           <p>Saved Counter: {{ store.storage.counter }}</p>
-          <default-button :onClick="store.incrementStorage">Increment</default-button>
+          <default-button :on-click="store.incrementStorage">Increment</default-button>
         </div>
   </div>
 </template>

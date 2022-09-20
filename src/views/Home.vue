@@ -1,24 +1,25 @@
 <template>
   <div class="text-center">
-        <h1 class="text-3xl font-bold mb-4">
-          Homepage
-        </h1>
-        <p>This data comes from the store.</p>
-        <default-button v-if="!store.storage.active" :on-click="store.setLocalStorage">Activate LocalStorage</default-button>
-        <default-button v-else :on-click="removeStorage">Remove LocalStorage</default-button>
+    <p><AcademicCapIcon class="h-6 w-6 mx-auto text-blue-500"/></p>
+    <h1 class="text-3xl font-bold mb-4">
+      Homepage
+    </h1>
+    <p>This data comes from the store.</p>
+    <default-button v-if="!store.storage.active" :on-click="store.setLocalStorage">Activate LocalStorage</default-button>
+    <default-button v-else :on-click="removeStorage">Remove LocalStorage</default-button>
 
-        <div v-if="!store.storage.active" class="mt-5">
-          <p>Counter: {{ store.counter }}</p>
-          <default-button :on-click="store.increment">Increase</default-button>
-          <div class="mt-2">
-            <span tabindex="0" class="underline underline-offset-4 hover:no-underline font-medium cursor-pointer" @click="storeReset" @keydown.enter="storeReset">Reset</span>
-          </div>
-        </div>
+    <div v-if="!store.storage.active" class="mt-5">
+      <p>Counter: {{ store.counter }}</p>
+      <default-button :on-click="store.increment">Increase</default-button>
+      <div class="mt-2">
+        <span tabindex="0" class="underline underline-offset-4 hover:no-underline font-medium cursor-pointer" @click="storeReset" @keydown.enter="storeReset">Reset</span>
+      </div>
+    </div>
 
-        <div v-else class="mt-5">
-          <p>Saved Counter: {{ store.storage.counter }}</p>
-          <default-button :on-click="store.incrementStorage">Increment</default-button>
-        </div>
+    <div v-else class="mt-5">
+      <p>Saved Counter: {{ store.storage.counter }}</p>
+      <default-button :on-click="store.incrementStorage">Increment</default-button>
+    </div>
   </div>
 </template>
 
@@ -27,6 +28,7 @@
 import { useHead } from '@vueuse/head';
 import { useDefaultStore } from '@/stores/default';
 import DefaultButton from '@/components/DefaultButton.vue';
+import { AcademicCapIcon } from '@heroicons/vue/24/outline'
 
 // Use the store
 const store = useDefaultStore();

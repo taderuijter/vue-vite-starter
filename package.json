@@ -2,13 +2,15 @@
   "name": "vue-vite-starter",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.2",
+    "@heroicons/vue": "^2.0.11",
     "@vueuse/components": "^9.2.0",
     "@vueuse/core": "^9.2.0",
     "@vueuse/head": "^0.7.12",
